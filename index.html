@@ -1,44 +1,86 @@
 <!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Jackson Fox &amp; Erica Tsai</title>
-    <!--[if IE]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->                        
-    <style type="text/css">
-    body { font-size: 120%; text-align: center; }
-    a { text-decoration: none; }                                                                                                  
-    img { border: 10px solid #eee; height: 350px; }
-    </style>
-  </head>
-  <body>
-    <img src="jack-and-erica.jpg" alt="photo of jackson and erica" title="Jackson and Erica in Wilmington, NC (photo by Mitch Fox)">
-    <pre>                  
-Hi! Here's how you can find us these days...
-    
-<b>Jackson Fox:</b> 
-<a href="mailto:jacksonfox@gmail.com">jacksonfox@gmail.com</a>
-<a href="http://twitter.com/jacksonfox">http://twitter.com/jacksonfox</a>
-<a href="http://jacksonfox.org">http://jacksonfox.org</a>
+<html lang="en">
+<head>
+  <meta charset="utf-8">        
+  <title>Jackson Fox &amp; Erica Tsai</title>
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->                        
+  <style type="text/css">
+  body { text-align: center; font-family: menlo, monospace; font-size: 14px; line-height: 1.5em; color: #333333; margin: 0; padding: 0;}
+  a { text-decoration: none; } 
+  .wrapper {  }                                                                
+  .selfie { position: absolute; top: 0; left: 0; width: 50%; height: 100%; background: url(jack-and-erica.jpg) no-repeat left center; background-size: cover;  }                                 
+  .about { position: absolute; left: 50%; text-align: left; margin: 0 3em; }
+  ul { list-style-type: none; }
+  ul, li { margin-left: 0; padding-left: 0; }
+  .name { font-weight: bold; font-size: 18px; line-height: 2em; }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="about">
+      <p>Hi! Here's how you can find us these days...</p>
+      
+      <ul>
+        <li class="name">Jackson Fox</li>
+        <li><a href="mailto:jacksonfox@gmail.com">jacksonfox@gmail.com</a></li>
+        <li><a href="http://twitter.com/jacksonfox">http://twitter.com/jacksonfox</a></li>
+        <li><a href="http://jacksonfox.org">http://jacksonfox.org</a></li>
+      </ul>
 
-<b>Erica Tsai:</b> 
-<a href="mailto:etsai@lsu.edu">etsai@lsu.edu</a>
-<a href="http://ericatsai.com/">http://ericatsai.com/</a>   
-<a href="http://www.flickr.com/photos/panda_linda">http://www.flickr.com/photos/panda_linda</a>
-    </pre>
-    <script type="text/javascript">
+      <ul>
+        <li class="name">Erica Tsai</li>
+        <li><a href="mailto:yihsin.erica.tsai@gmail.com">yihsin.erica.tsai@gmail.com</a></li>
+        <li><a href="http://ericatsai.com/">http://ericatsai.com/</a></li>
+      </ul>
+    </div>
+    <div class="selfie"></div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+    /*
+    * Vertically align something in the window
+    * via http://www.seodenver.com/simple-vertical-align-plugin-for-jquery/
+    */
+    (function ($) {
+      $.fn.vertical_center = function() {
+        var el = this;
+        return this.each(function(){
+          _center();
+        });
+        function _center() {
+          var ah = $(el).height();
+          var ph = $(window).height();
+          var mh = Math.ceil((ph-ah) / 2);
+          if (mh > 0) {
+            $(el).css('top', mh);        
+          } else {
+            $(el).css('top', '10%');                
+          }
+        }
+      };
+    })(jQuery);
+    function layout() {
+      var $wrapper = $('.about');
+      $wrapper.vertical_center(); 
+    }
+    $(window).resize(function(){
+      layout();
+    }).resize();    
+  </script>
+  <script type="text/javascript">
 
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-99790-8']);
-      _gaq.push(['_trackPageview']);
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-99790-8']);
+    _gaq.push(['_trackPageview']);
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-    </script>
-  </body>
+  </script>
+</body>
 </html>
